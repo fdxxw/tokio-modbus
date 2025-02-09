@@ -40,6 +40,7 @@ pub mod slave;
 pub use self::slave::{Slave, SlaveId};
 
 pub mod codec;
+pub use self::codec::*;
 
 pub mod error;
 pub use self::error::{Error, ProtocolError};
@@ -47,6 +48,7 @@ pub use self::error::{Error, ProtocolError};
 pub mod frame;
 #[cfg(feature = "server")]
 pub use self::frame::SlaveRequest;
+pub use self::frame::*;
 pub use self::frame::{
     Address, ExceptionCode, ExceptionResponse, FunctionCode, Quantity, Request, Response,
 };
@@ -62,6 +64,6 @@ pub use self::frame::{
 pub type Result<T> = std::result::Result<std::result::Result<T, ExceptionCode>, Error>;
 
 pub mod service;
-
+pub use self::service::*;
 #[cfg(feature = "server")]
 pub mod server;
