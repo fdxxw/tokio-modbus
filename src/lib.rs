@@ -40,15 +40,14 @@ pub mod slave;
 pub use self::slave::{Slave, SlaveId};
 
 pub mod codec;
-pub use self::codec::*;
 
 pub mod error;
 pub use self::error::{Error, ProtocolError};
 
 pub mod frame;
+
 #[cfg(feature = "server")]
 pub use self::frame::SlaveRequest;
-pub use self::frame::*;
 pub use self::frame::{
     Address, ExceptionCode, ExceptionResponse, FunctionCode, Quantity, Request, Response,
 };

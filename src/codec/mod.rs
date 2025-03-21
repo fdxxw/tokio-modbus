@@ -15,10 +15,10 @@ use crate::{
 };
 
 #[cfg(feature = "rtu")]
-pub(crate) mod rtu;
+pub mod rtu;
 
 #[cfg(feature = "tcp")]
-pub(crate) mod tcp;
+pub mod tcp;
 
 /// Maximum request/response PDU size.
 ///
@@ -46,7 +46,7 @@ fn u8_len(len: usize) -> u8 {
 }
 
 #[cfg(any(test, feature = "rtu", feature = "tcp"))]
-fn encode_request_pdu(buf: &mut crate::bytes::BytesMut, request: &Request<'_>) {
+pub fn encode_request_pdu(buf: &mut crate::bytes::BytesMut, request: &Request<'_>) {
     use crate::{bytes::BufMut as _, frame::Request::*};
     buf.put_u8(request.function_code().value());
     match request {
